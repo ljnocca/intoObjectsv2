@@ -29,6 +29,15 @@ function flipColor(object){
 // of objects with first and last names and returns an array 
 // of strings, where each string is a customer's full name.
 
+function getFullNames(array){
+    var fullNameArray = []
+    for (var i=0; i<array.length; i++){
+        var fullName = array[i]['first']+' '+array[i]['last']
+        fullNameArray.push(fullName)
+    }
+    return fullNameArray
+}
+
 // see test.js for example usage
 
 // Part 2
@@ -41,6 +50,28 @@ function flipColor(object){
 // Give the dog a method called .speak(). speak() should receive a string as input and 
 // return a new version of that string where the first letter of every word is replaced 
 // with the letter 'r'.
+
+function generateDog(stringName){
+    var dog = {
+        name: stringName,
+        legs: 4,
+        weight: 30,
+        color: 'brown',
+        speak: function(string){
+        	var stringToArray = string.split(' ')
+        	var dogSpeak = ''
+        	for (var i = 0; i<stringToArray.length; i++){
+        		var updatedDogWord = stringToArray[i]
+        		updatedDogWord = updatedDogWord.replace(updatedDogWord[0],'r')
+        		dogSpeak += updatedDogWord + ' '
+        	}
+        	return dogSpeak.trim()      
+        }
+    }
+    return dog
+}
+
+
 
 
 // see test.js for example usage
