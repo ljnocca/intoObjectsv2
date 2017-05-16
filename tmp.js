@@ -9,16 +9,16 @@
 // has the value blue, it should change it to red, and 
 // vice-versa.
 
-var flipColor = function(inputObj) {
-    if(inputObj.color === 'red') {
-        inputObj.color = 'blue'
-    }
-    else {
-        inputObj.color = 'red'
-    }
-    return inputObj
-}
 
+function flipColor(object){
+    if (object['color']==='red'){
+        object['color']='blue'
+    }
+    else if (object['color']==='blue'){
+        object['color']='red'
+    }
+    return object
+}
 
 // see test.js for example usage
 
@@ -31,41 +31,12 @@ var flipColor = function(inputObj) {
 
 // see test.js for example usage
 
-var getFullNames = function(inputArr) {
-    var fullNamesArr =[]
-    for(var i = 0; i < inputArr.length; i++) {
-        var firstName = inputArr[i].first
-        var lastName = inputArr[i].last
-        var fullName = firstName + ' ' + lastName
-        fullNamesArr.push(fullName)
-    }
-    return fullNamesArr
-}
-
 // Part 2
 
 // Write a function called generateDog that returns an object which represents a dog.
 // The dog object should have attributes like legs, weight and color. The dog *constructor* 
 // (which is, almost, what this is) should take a name input, and the dog should receive the 
 // assigned name.
-
-var generateDog = function(input){
-    var newObject = {
-        legs: 4,
-        name: input,
-        speak: function(input){
-            input = input.replace(0, "r")
-            for (var i = 0; i< input.length; i ++) {
-                if (input[i] === " ") {
-                input = input.replace(input[(i + 1)], "r")
-                } 
-            } 
-            input = input.replace(input[0],"r")
-            return input
-        }
-    }
-   return newObject
-}
 
 // Give the dog a method called .speak(). speak() should receive a string as input and 
 // return a new version of that string where the first letter of every word is replaced 
@@ -85,46 +56,12 @@ var generateDog = function(input){
 
 // see test.js for example usage
 
-var pluck = function(array, key){
-    var newObject = []
-        for(var i = 0; i < array.length; i++){
-       var nameObject = array[i]
-             newObject.push(nameObject[key])   
-        }
-  return newObject
-}
-
 // Part 4
 
 // Write a function called getCounts that takes a string of text as input and returns
 // an object which stores the frequency of each word in the string.
 
 // Note that your counts should NOT be case-sensitive.
-
-var lowerCaseAll = function(string) {
-    var splitString = string.split(' ')
-    for(var i = 0; i < splitString.length; i++) {
-        splitString[i] = splitString[i].charAt(0).toLowerCase() + splitString[i].substring(1)
-        var allLower = splitString.join(' ')
-    }
-    return allLower
-}
-
-var getCounts = function(inputText) {
-    var countObj = {}
-    var lowerTextString = lowerCaseAll(inputText)
-    var lowerTextArray = lowerTextString.split(' ')
-    // log(lowerTextArray)
-    for(var i = 0; i < lowerTextArray.length; i++) {
-        if(countObj[lowerTextArray[i]] === undefined) {
-            countObj[lowerTextArray[i]] = 1
-        }
-        else {
-            countObj[lowerTextArray[i]] = countObj[lowerTextArray[i]] + 1
-        }
-    }
-    return countObj
-}
 
 
 // check test.js for examples of how this function should be used.
@@ -152,13 +89,6 @@ var getCounts = function(inputText) {
 //   failing: 'structural_integrity'
 // }
 
-var reverseObject = function(inputObj) {
-    var reversedObj = {}
-    for(var key in inputObj) {
-        reversedObj[inputObj[key]] = key
-    }
-    return reversedObj
-}
 
 // Part 6
 
@@ -168,19 +98,6 @@ var reverseObject = function(inputObj) {
 
 var users = [{obama: 'president@gmail.com',hobby: 'basketball'},{trump: 'americamoneywin@yahoo.com', hobby:'dealmaking'},{bush: 'jeb!@hotmail.com',hobby:'portraiture'}]
 // should yield: [{'president@gmail.com': 'obama',basketball: 'hobby'}, ....]
-
-var reverseAll = function(inputArray) {
-    var flippedArray = []
-    for(var i = 0; i < inputArray.length; i++) {
-        var reversedObj = {}
-        var object = inputArray[i]
-        for(var key in object) {
-            reversedObj[object[key]] = key
-        }
-        flippedArray.push(reversedObj)
-    }
-    return flippedArray
-}
 
 // Part 7
 

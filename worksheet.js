@@ -9,6 +9,17 @@
 // has the value blue, it should change it to red, and 
 // vice-versa.
 
+
+function flipColor(object){
+    if (object['color']==='red'){
+        object['color']='blue'
+    }
+    else if (object['color']==='blue'){
+        object['color']='red'
+    }
+    return object
+}
+
 // see test.js for example usage
 
 
