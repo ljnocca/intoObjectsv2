@@ -52,23 +52,23 @@ function getFullNames(array){
 // with the letter 'r'.
 
 function generateDog(stringName){
-    var dog = {
+    var dog = {//create dog object
         name: stringName,
         legs: 4,
         weight: 30,
         color: 'brown',
-        speak: function(string){
-        	var stringToArray = string.split(' ')
-        	var dogSpeak = ''
+        speak: function(string){ //create speak method (aka a function inside an object)
+        	var stringToArray = string.split(' ') //split words into an array
+        	var dogSpeak = '' //start with empty string
         	for (var i = 0; i<stringToArray.length; i++){
         		var updatedDogWord = stringToArray[i]
-        		updatedDogWord = updatedDogWord.replace(updatedDogWord[0],'r')
+        		updatedDogWord = updatedDogWord.replace(updatedDogWord[0],'r') //replace first letter of each word with r
         		dogSpeak += updatedDogWord + ' '
         	}
-        	return dogSpeak.trim()      
+        	return dogSpeak.trim() //return that the string with etra space trimmed   
         }
     }
-    return dog
+    return dog //return the dog object
 }
 
 
@@ -85,6 +85,13 @@ function generateDog(stringName){
 // var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}]
 // pluck(stooges, 'name') should yield the array, ['moe','larry','curly']
 
+function pluck(objList, objKey){ // the two arguments are an array of Objects and the key you want to pull from each one
+    var newArray = [] //you will want to return an array of strings
+    for (var i = 0; i< objList.length; i++){
+        newArray.push(objList[i][objKey]) //push the name of corresponding key-value pairs into the new array   
+    }
+    return newArray
+}
 // see test.js for example usage
 
 // Part 4
@@ -93,7 +100,25 @@ function generateDog(stringName){
 // an object which stores the frequency of each word in the string.
 
 // Note that your counts should NOT be case-sensitive.
-
+function getCounts(string){
+    var lowerCase = string.toLowerCase()
+    var justLetters = lowerCase.replace(/[^A-Za-z\s]/, "") //regex replaces everything except A-Z and a-z
+    var stringArray = justLetters.split(' ') //split into array of words
+    stringArray.sort()
+    var wordCountObj = {}
+    var counter = 1
+    for(var i = 0; i<stringArray.length; i++){
+        var word = stringArray[i]
+        if(stringArray[i]===stringArray[i+1]){
+            counter ++
+        }
+        else{
+            wordCountObj[stringArray[i]]=counter
+            counter = 1
+        }
+    }
+    return wordCountObj
+}
 
 // check test.js for examples of how this function should be used.
 
@@ -120,6 +145,13 @@ function generateDog(stringName){
 //   failing: 'structural_integrity'
 // }
 
+function reverseObject(object){
+    var newObj = {}
+    for(var prop in object){
+        newObj[object[prop]] = prop
+    }
+    return newObj
+}
 
 // Part 6
 
@@ -129,6 +161,14 @@ function generateDog(stringName){
 
 var users = [{obama: 'president@gmail.com',hobby: 'basketball'},{trump: 'americamoneywin@yahoo.com', hobby:'dealmaking'},{bush: 'jeb!@hotmail.com',hobby:'portraiture'}]
 // should yield: [{'president@gmail.com': 'obama',basketball: 'hobby'}, ....]
+
+function reverseAll(array){
+    var newArray = []
+    for (var i = 0; i<array.length; i++){
+        newArray.push(reverseObject(array[i]))
+    }
+    return newArray
+}
 
 // Part 7
 
